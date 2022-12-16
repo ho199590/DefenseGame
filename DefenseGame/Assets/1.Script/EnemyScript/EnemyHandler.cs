@@ -7,27 +7,41 @@ public class EnemyHandler : MonoBehaviour
 {
     #region 변수
 
-    // 파라미터
-    public int attack;
-    public float health;
-    public float speed;
-    public float guard;
-
+    public int level;
+    public float lifeTime;
 
     private Transform target;
     private int pointIndex = 0;
+
+
+    // 파라미터
+    EnemyParam enemy;
+    private int attack;
+    private float health;
+    private float speed;
+    private float guard;
+    [SerializeField]
+    EnemyScriptable enemyContainer;
     #endregion
     #region 함수
     private void Start()
     {
         target = WayPointHandler.points[0];
 
+        level = FindObjectOfType<EnemySpawnController>().waveLevel;
+
+        enemy = enemyContainer.GetEnemyList(level % 2);
+        attack = enemy.attack;
+        health = enemy.health;
+        speed = enemy.speed;
+        guard = enemy.armor;
     }
 
     private void Update()
     {
         Vector3 dir = target.position - transform.position;
         transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
+        lifeTime += Time.deltaTime;
 
         if(Vector3.Distance(transform.position, target.position) <= 0.4f)
         {
@@ -42,8 +56,8 @@ public class EnemyHandler : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        pointIndex++;
         target = WayPointHandler.points[pointIndex];
+        pointIndex++;
     }
     #endregion
 }
