@@ -56,7 +56,7 @@ public class EnemySpawnController : MonoBehaviour
         Debug.Log("Wave comming");
 
 
-        int test = waveLevel % 2;        
+        int test = waveLevel % 10;        
         waveCount = enemy.GetEnemyList(test).count;
 
         spawning = true;
@@ -78,7 +78,7 @@ public class EnemySpawnController : MonoBehaviour
         float z = Random.Range(-(size.y / 2), (size.y / 2));
         Vector3 SpawnPoint = new Vector3(center.x, 1, center.z);
         var enemy = Instantiate(enemyPrefab, SpawnPoint, Quaternion.identity);
-        enemy.tag = "Enemy";
+        //enemy.tag = "Enemy";
     }
     #endregion
 

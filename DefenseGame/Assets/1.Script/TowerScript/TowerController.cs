@@ -20,7 +20,8 @@ public class TowerController : MonoBehaviour
     private TowerClass tower;
 
 
-    private float attack;    
+    private float attack;
+    [SerializeField]
     private float speed;    
     private float range;    
     private bool skill;
@@ -31,9 +32,9 @@ public class TowerController : MonoBehaviour
     #region 타워 스탯 가져오기
     private void OnEnable()
     {
-        GetState();
+        SetState();
     }
-    public void GetState()
+    public void SetState()
     {
         tower = towerState.GetTowerState(towerCode);
 
@@ -42,6 +43,18 @@ public class TowerController : MonoBehaviour
         range = tower.level[towerLevel].range;
         skill = tower.level[towerLevel].skill;
         bullet = tower.level[towerLevel].bullet;
+
+        SetModel();
+        partToRotate = transform.GetChild(towerLevel);
+    }
+
+    public void SetModel()
+    {
+        for(int i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).gameObject.SetActive(false);
+        }
+        transform.GetChild(towerLevel).gameObject.SetActive(true);
     }
     #endregion
     #region 타겟 설정 관련 함수
@@ -77,7 +90,6 @@ public class TowerController : MonoBehaviour
     #region 사격 관련
     void Shot()
     {
-        print("Shot");
         var shotBullet = Instantiate(bullet, firePoint.position, firePoint.rotation);
         shotBullet.GetComponent<BulletHandler>().SetTarget(target);
     }
@@ -93,8 +105,9 @@ public class TowerController : MonoBehaviour
         //포탑 회전 관련
         Vector3 dir = target.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(dir);
-        Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
+        Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;        
         partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0);
+
 
         //사격 관련
         if(shotCountdown <= 0f)
@@ -104,6 +117,11 @@ public class TowerController : MonoBehaviour
         }
         shotCountdown -= Time.deltaTime;
 
+
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            SetState();
+        }
     }
     private void OnDrawGizmosSelected()
     {

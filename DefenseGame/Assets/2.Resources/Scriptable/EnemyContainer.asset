@@ -25,3 +25,51 @@ MonoBehaviour:
     armor: 0
     speed: 10
     skill: 0
+  - count: 10
+    attack: 1
+    health: 4
+    armor: 0
+    speed: 10
+    skill: 0
+  - count: 10
+    attack: 1
+    health: 4
+    armor: 1
+    speed: 10
+    skill: 0
+  - count: 10
+    attack: 1
+    health: 10
+    armor: 10
+    speed: 2
+    skill: 0
+  - count: 10
+    attack: 1
+    health: 6
+    armor: 0
+    speed: 2
+    skill: 0
+  - count: 10
+    attack: 1
+    health: 10
+    armor: 0
+    speed: 20
+    skill: 0
+  - count: 10
+    attack: 1
+    health: 10
+    armor: 0
+    speed: 10
+    skill: 0
+  - count: 30
+    attack: 1
+    health: 1
+    armor: 0
+    speed: 15
+    skill: 0
+  - count: 1
+    attack: 10
+    health: 100
+    armor: 2
+    speed: 10
+    skill: 1

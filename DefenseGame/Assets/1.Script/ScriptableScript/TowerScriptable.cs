@@ -10,7 +10,7 @@ public class TowerParam
     public float speed;
     public float range;
     public bool skill;
-    public GameObject bullet;
+    public GameObject bullet;    
 }
 [System.Serializable]
 public class TowerClass

@@ -36,13 +36,13 @@ public class NodeScript : MonoBehaviour
             return;
         }
 
-        // 건설 관련 스크립트
-
-        int code = BuilderController.instance.GetTowerToBuild().Item1;
-        GameObject towerTobuild = BuilderController.instance.GetTowerToBuild().Item2;
+        // 건설 관련 스크립트        
+        (int, GameObject) towerParam = BuilderController.instance.GetTowerToBuild();
+        int code = towerParam.Item1;
+        GameObject towerTobuild = towerParam.Item2;
         tower = Instantiate(towerTobuild, transform.position + positionOffset, transform.rotation);
         tower.GetComponent<TowerController>().towerCode = code;
-        tower.GetComponent<TowerController>().GetState();
+        tower.GetComponent<TowerController>().SetState();
     }
 
     private void OnMouseExit()

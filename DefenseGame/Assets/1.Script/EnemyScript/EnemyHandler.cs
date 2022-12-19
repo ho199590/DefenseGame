@@ -30,7 +30,7 @@ public class EnemyHandler : MonoBehaviour
 
         level = FindObjectOfType<EnemySpawnController>().waveLevel;
 
-        enemy = enemyContainer.GetEnemyList(level % 2);
+        enemy = enemyContainer.GetEnemyList(level % 10);
         attack = enemy.attack;
         health = enemy.health;
         speed = enemy.speed;

@@ -93,7 +93,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4293255654
+    rgba: 4294950096
   m_fontColor: {r: 0.81568635, g: 0.7372549, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -446,7 +446,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4293255654
+    rgba: 4285734456
   m_fontColor: {r: 0.21960787, g: 0.11764704, b: 0.45098042, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -599,7 +599,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4293255654
+    rgba: 4294950096
   m_fontColor: {r: 0.81568635, g: 0.7372549, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -736,7 +736,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 800, y: 600}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2779272594777903168
 MonoBehaviour:
@@ -1031,7 +1031,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 40, y: 40}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3589061758958887551
 CanvasRenderer:
@@ -1125,13 +1125,20 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4283974730
   m_circleRadius: 0
+  m_embossDirection: 0
+  m_embossBlurTop: 0
+  m_embossBlurBottom: 0
+  m_embossDistance: 0
+  m_embossSize: 0
+  m_embossPow: 0
+  m_embossHighlightCol: {r: 1, g: 1, b: 1, a: 1}
+  m_embossLowlightCol: {r: 0, g: 0, b: 0, a: 1}
   m_outlineSize: 0
   m_outlineColor:
     serializedVersion: 2
     rgba: 4288253844
   m_shadowSize: 0
   m_shadowBlur: 80
-  m_shadowPower: 1
   m_shadowColor:
     serializedVersion: 2
     rgba: 4278190080
@@ -1483,7 +1490,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 40, y: 40}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &720754116913385646
 CanvasRenderer:
@@ -1577,13 +1584,20 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4283974730
   m_circleRadius: 0
+  m_embossDirection: 0
+  m_embossBlurTop: 0
+  m_embossBlurBottom: 0
+  m_embossDistance: 0
+  m_embossSize: 0
+  m_embossPow: 0
+  m_embossHighlightCol: {r: 1, g: 1, b: 1, a: 1}
+  m_embossLowlightCol: {r: 0, g: 0, b: 0, a: 1}
   m_outlineSize: 0
   m_outlineColor:
     serializedVersion: 2
     rgba: 4288253844
   m_shadowSize: 0
   m_shadowBlur: 80
-  m_shadowPower: 1
   m_shadowColor:
     serializedVersion: 2
     rgba: 4278190080
@@ -1735,10 +1749,10 @@ RectTransform:
   m_Father: {fileID: 9214944458119129871}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2828598161998555354
 MonoBehaviour:
@@ -1837,10 +1851,10 @@ RectTransform:
   m_Father: {fileID: 3402529209635491798}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1593042577209132252
 MonoBehaviour:
@@ -1931,7 +1945,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 82.4, y: 40}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4878367200879978189
 CanvasRenderer:
@@ -2025,13 +2039,20 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4285734456
   m_circleRadius: 0
+  m_embossDirection: 0
+  m_embossBlurTop: 0
+  m_embossBlurBottom: 0
+  m_embossDistance: 0
+  m_embossSize: 0
+  m_embossPow: 0
+  m_embossHighlightCol: {r: 1, g: 1, b: 1, a: 1}
+  m_embossLowlightCol: {r: 0, g: 0, b: 0, a: 1}
   m_outlineSize: 0
   m_outlineColor:
     serializedVersion: 2
     rgba: 4288253844
   m_shadowSize: 0
   m_shadowBlur: 80
-  m_shadowPower: 1
   m_shadowColor:
     serializedVersion: 2
     rgba: 4278190080

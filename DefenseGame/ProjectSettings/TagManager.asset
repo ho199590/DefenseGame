@@ -8,6 +8,7 @@ TagManager:
   - Missile
   - Fire
   - Node
+  - Enemy
   layers:
   - Default
   - TransparentFX

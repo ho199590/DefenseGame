@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 [ExecuteAlways]
 public class ShapePainter : CanvasDrawer, IPointerEnterHandler, IPointerExitHandler
-{
+{   
     [Header("Main Blob")]
     [SerializeField] float m_offset = 0f;
 
@@ -137,7 +137,7 @@ public class ShapePainter : CanvasDrawer, IPointerEnterHandler, IPointerExitHand
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        m_hovering = true;
+        m_hovering = true;        
     }
 
     public void OnPointerExit(PointerEventData eventData)

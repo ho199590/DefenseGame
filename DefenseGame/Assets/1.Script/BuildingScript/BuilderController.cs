@@ -5,10 +5,11 @@ using UnityEngine;
 public class BuilderController : MonoBehaviour
 {
     #region º¯¼ö
+    public bool canBuild = true;
     public static BuilderController instance;
     private GameObject towerToBuild;
     [SerializeField]
-    private GameObject towerList;
+    private GameObject[] towerList;
 
 
     [SerializeField]
@@ -31,8 +32,14 @@ public class BuilderController : MonoBehaviour
 
     public (int , GameObject) GetTowerToBuild()
     {
-        towerToBuild = towerList;        
+        int num = Random.Range(0, towerList.Length);
+        GameObject tower = towerList[num];
+        
+        code = num;        
+        towerToBuild = tower;
+
         return (code, towerToBuild);
     }
+
     #endregion
 }
