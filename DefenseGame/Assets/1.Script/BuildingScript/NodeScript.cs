@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class NodeScript : MonoBehaviour
 {
@@ -8,9 +9,11 @@ public class NodeScript : MonoBehaviour
     [SerializeField]
     private Color hoverColor;
     private Color startColor;
+    [SerializeField]
+    private Color enoughtColor;
 
     [SerializeField]
-    private GameObject tower;
+    public GameObject tower;
     private Renderer render;
 
     #endregion
@@ -23,31 +26,70 @@ public class NodeScript : MonoBehaviour
     }
 
 #if PLATFORM_STANDALONE_WIN
-    private void OnMouseOver()
+    private void OnMouseEnter()
     {
-        render.material.color = hoverColor;
+        if (BuilderController.instance.HasMoney)
+        {
+            render.material.color = hoverColor;
+        }
+        else
+        {
+            render.material.color = enoughtColor;
+
+        }
+
+
+        if (tower != null)
+        {
+            BuilderController.instance.SetTowerToAction(tower);
+        }
     }
 
     private void OnMouseDown()
     {
-        if(tower != null)
+
+        if (BuilderController.instance.playerOP == PlayerOperate.Build)
+        {
+            BuildTower();
+        }
+        if (BuilderController.instance.playerOP == PlayerOperate.Upgrade)
+        {
+            print("Upgrade");
+        }
+        if (BuilderController.instance.playerOP == PlayerOperate.Destroy)
+        {
+            print("Destroy");
+        }
+        if (BuilderController.instance.playerOP == PlayerOperate.Move)
+        {
+            print("Move");
+        }
+
+    }
+
+    public void BuildTower()
+    {
+        if (tower != null)
         {
             print("현제 위치에 건설 불가");
             return;
         }
 
-        // 건설 관련 스크립트        
-        (int, GameObject) towerParam = BuilderController.instance.GetTowerToBuild();
-        int code = towerParam.Item1;
-        GameObject towerTobuild = towerParam.Item2;
-        tower = Instantiate(towerTobuild, transform.position + positionOffset, transform.rotation);
-        tower.GetComponent<TowerController>().towerCode = code;
-        tower.GetComponent<TowerController>().SetState();
+        BuilderController.instance.BuildTowerOn(transform.GetComponent<NodeScript>());
     }
 
     private void OnMouseExit()
     {
         render.material.color = startColor;
+        if (tower != null)
+        {
+            BuilderController.instance.SetTowerToAction(null);
+        }
+    }
+
+    public Vector3 getPostionOffset()
+    {
+        return transform.position + positionOffset;
     }
 #endif
     #endregion

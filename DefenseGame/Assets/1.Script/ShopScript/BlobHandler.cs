@@ -8,16 +8,22 @@ public class BlobHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 {
     #region 변수
     [SerializeField]
+    int cost;
+
+    [SerializeField]
     ExplainController explain;
     [Header("설명서")]
     [SerializeField]
     ExplainContent param;
+    [SerializeField]
+    PlayerOperate operate;
     #endregion
 
     #region 함수
     public void OnPointerClick(PointerEventData eventData)
     {
-
+        BuilderController.instance.playerOP = operate;
+        BuilderController.instance.cost = cost;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
