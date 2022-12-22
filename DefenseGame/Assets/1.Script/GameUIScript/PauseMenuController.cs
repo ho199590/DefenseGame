@@ -9,6 +9,10 @@ public class PauseMenuController : MonoBehaviour
     #region 변수
     public GameObject UI;
     public Text waveCount;
+
+    [SerializeField]
+    SceneFader sceneFader;
+
     #endregion
 
     #region 함수
@@ -27,10 +31,14 @@ public class PauseMenuController : MonoBehaviour
 
         if (UI.activeSelf)
         {
+            SoundManager.instance.SoundByNum(0);
+
             Time.timeScale = 0;
         }
         else
         {
+            SoundManager.instance.SoundByNum(1);
+
             Time.timeScale = 1;
         }
     }
@@ -43,7 +51,8 @@ public class PauseMenuController : MonoBehaviour
 
     public void Menu()
     {
-        print("MENU OPEN");
+
+        sceneFader.FadeTo("MainMenu");
     }
     #endregion
 }

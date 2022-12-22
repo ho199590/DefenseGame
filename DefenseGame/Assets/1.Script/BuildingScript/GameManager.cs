@@ -47,13 +47,15 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.E))
         {
+            SoundManager.instance.SoundByNum(2);
+
             EndGame();
         }
 
         if (gameEnd) { return; }
         if (PlayerController.life <= 0)
         {
-            print("TEST!");
+            SoundManager.instance.SoundByNum(2);
             EndGame();
         }
         wavelevel.text = gameLevel.ToString();

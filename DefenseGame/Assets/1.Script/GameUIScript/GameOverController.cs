@@ -27,6 +27,10 @@ public class GameOverController : MonoBehaviour
     [Header("등록 포지션")]
     [SerializeField]
     Transform[] pos;
+
+    [SerializeField]
+    SceneFader sceneFader;
+
     #endregion
 
     #region 함수
@@ -59,7 +63,8 @@ public class GameOverController : MonoBehaviour
 
     public void Menu()
     {
-        print("Menu!");
+        GameManager.gameLevel = 0;
+        sceneFader.FadeTo("MainMenu");
     }
     #endregion
 }

@@ -50,12 +50,6 @@ public class EnemyHandler : MonoBehaviour
         guard = enemy.armor;
 
         value = 5;
-
-        living = FindObjectOfType<LivingParticleController>();
-        if(level % 10 == 9)
-        {
-            living.affector = livingFoot;
-        }
     }
 
     private void Update()

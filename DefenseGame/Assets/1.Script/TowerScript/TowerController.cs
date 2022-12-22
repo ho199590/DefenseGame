@@ -185,6 +185,7 @@ public class TowerController : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, range);
     }
 
+
     public void SetMyNode(NodeScript node){myNode = node;}
     private void OnDestroy()
     {

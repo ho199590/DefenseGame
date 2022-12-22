@@ -300,7 +300,7 @@ GameObject:
   - component: {fileID: 5188903240486402652}
   - component: {fileID: 2833289883255935162}
   m_Layer: 0
-  m_Name: TestEnemy
+  m_Name: BossTest
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

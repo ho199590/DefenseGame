@@ -50,6 +50,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 89617ad407dbf7341a1e7276be68e8c6, type: 3}
   - name: "\uC815\uC9C0\uD574\uC81C"
     clip: {fileID: 8300000, guid: e3d281454be7a494e9a0e63807f6eb4f, type: 3}
+  - name: "\uAC8C\uC784\uC624\uBC84"
+    clip: {fileID: 8300000, guid: 075895943e92f42e49db5372babd2f15, type: 3}
 --- !u!82 &4658442992898294160
 AudioSource:
   m_ObjectHideFlags: 0

@@ -11,7 +11,7 @@ public class EnemySpawnController : MonoBehaviour
     public Vector3 size;
 
     // 적 프리팹
-    public Transform enemyPrefab;
+    public Transform[] enemyPrefab;
     [SerializeField]
     Transform enemyBasket;
     // 첫 웨이브 생성까지 카운트 다운
@@ -82,7 +82,18 @@ public class EnemySpawnController : MonoBehaviour
         float x = Random.Range(-(size.x / 2), (size.x / 2));
         float z = Random.Range(-(size.y / 2), (size.y / 2));
         Vector3 SpawnPoint = new Vector3(center.x, 1, center.z);
-        var enemy = Instantiate(enemyPrefab, SpawnPoint, Quaternion.identity, enemyBasket);
+
+        if(waveCount % 10 == 9)
+        {
+            var enemy = Instantiate(enemyPrefab[1], SpawnPoint, Quaternion.identity, enemyBasket);
+        }
+        else
+        {
+            var enemy = Instantiate(enemyPrefab[0], SpawnPoint, Quaternion.identity, enemyBasket);
+        }
+        
+
+
         //enemy.tag = "Enemy";
     }
     #endregion

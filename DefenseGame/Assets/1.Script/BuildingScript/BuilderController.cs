@@ -9,7 +9,7 @@ public class BuilderController : MonoBehaviour
     public bool canBuild = true;
     [HideInInspector]
     public bool HasMoney { get { return PlayerController.money >= cost; } }
-    public static BuilderController instance;    
+    public static BuilderController instance;
     private GameObject towerToBuild;
     private GameObject towerToAction;
     private NodeScript selectedNode;
@@ -36,6 +36,8 @@ public class BuilderController : MonoBehaviour
 
     [SerializeField]
     TowerScriptable towerContainer;
+    public bool CanBuild { get { return towerToBuild != null; } }
+    
     #endregion
 
     #region 함수
@@ -48,9 +50,9 @@ public class BuilderController : MonoBehaviour
             return;
         }
         instance = this;
+        
     }
 
-    public bool CanBuild { get { return towerToBuild != null; } }
 
     public void BuildTowerOn(NodeScript node)
     {
@@ -79,7 +81,7 @@ public class BuilderController : MonoBehaviour
     {
         int num = Random.Range(0, 100);
         code = RandomNumber(num);
-        
+
         GameObject tower = towerList[code];
         towerToBuild = tower;
 
@@ -113,7 +115,7 @@ public class BuilderController : MonoBehaviour
 
     public void SelectNode(NodeScript node)
     {
-        if(selectedNode == node)
+        if (selectedNode == node)
         {
             DeselectNode();
         }
@@ -130,13 +132,14 @@ public class BuilderController : MonoBehaviour
         nodeUI.Hide();
     }
 
+    #region 노드 파티클
     public void UpgradeSelect()
     {
         Instantiate(upgradeParticle, selectedNode.getPostionOffset(), Quaternion.identity);
     }
 
     public void MergeParticle(NodeScript node)
-    {   
+    {
         Instantiate(mergeParticle, node.getPostionOffset(), Quaternion.identity);
     }
 
@@ -144,5 +147,6 @@ public class BuilderController : MonoBehaviour
     {
         Instantiate(sellParticle, node.getPostionOffset(), Quaternion.identity);
     }
+    #endregion
     #endregion
 }

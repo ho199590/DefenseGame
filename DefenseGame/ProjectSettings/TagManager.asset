@@ -9,6 +9,7 @@ TagManager:
   - Fire
   - Node
   - Enemy
+  - Starge
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - SkillTarget
   - 
   - 
   - 
