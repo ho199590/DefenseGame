@@ -13,6 +13,7 @@ public class LivingParticleController : MonoBehaviour {
 	}
 	
 	void Update () {
+        if(affector != null)
         psr.material.SetVector("_Affector", affector.position);
     }
 }

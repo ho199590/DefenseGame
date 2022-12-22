@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EnemyContainer
   m_EditorClassIdentifier: 
   enemyList:
-  - count: 10
+  - count: 1
     attack: 1
     health: 1
     armor: 0
@@ -70,6 +70,6 @@ MonoBehaviour:
   - count: 1
     attack: 10
     health: 100
-    armor: 2
+    armor: 10
     speed: 10
     skill: 1

@@ -6,6 +6,7 @@ public class BulletHandler : MonoBehaviour
 {
     #region 변수
     private Transform target;
+    public float amount = 0;
     public float speed = 70;
     public float explosionRadius = 0;
     public GameObject bulletParticle;
@@ -65,9 +66,11 @@ public class BulletHandler : MonoBehaviour
 
     void Damage(Transform enemy)
     {
-
-
-        //Destroy(enemy);
+        
+        if(enemy != null)
+        {
+            enemy.GetComponent<EnemyHandler>().TakeDamage(amount);
+        }
     }
     #endregion
     #region 디버그 용

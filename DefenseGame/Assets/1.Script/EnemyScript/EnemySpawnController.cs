@@ -15,9 +15,7 @@ public class EnemySpawnController : MonoBehaviour
     [SerializeField]
     Transform enemyBasket;
     // 첫 웨이브 생성까지 카운트 다운
-    private float countdown = 5.5f;
-    [HideInInspector]
-    public int waveLevel = 0;
+    private float countdown = 5.5f;    
     [SerializeField]
     private int waveCount;
 
@@ -33,7 +31,7 @@ public class EnemySpawnController : MonoBehaviour
     #endregion
     private void Start()
     {
-        waveCountdownText.text = "다음 웨이브 : " + Mathf.Floor(countdown).ToString();
+        waveCountdownText.text = GameManager.gameLevel.ToString() + " 웨이브 : " + Mathf.Floor(countdown).ToString();
     }
 
     #region 함수
@@ -48,7 +46,7 @@ public class EnemySpawnController : MonoBehaviour
         if (!spawning)
         {
             countdown -= Time.deltaTime;
-            waveCountdownText.text = "다음 웨이브 : " + Mathf.Floor(countdown).ToString();
+            waveCountdownText.text = GameManager.gameLevel.ToString() + " 웨이브 : " + Mathf.Floor(countdown).ToString();
         }
     }
 
@@ -58,11 +56,16 @@ public class EnemySpawnController : MonoBehaviour
         Debug.Log("Wave comming");
 
 
-        int test = waveLevel % 10;        
+        int test = GameManager.gameLevel % 10;        
         waveCount = enemy.GetEnemyList(test).count;
 
+        if(test == 9)
+        {
+            GameManager.instance.AlterPopup(5);
+        }
+
         spawning = true;
-        waveCountdownText.text = "다음 웨이브 : 0";
+        waveCountdownText.text = GameManager.gameLevel.ToString() + " 웨이브 : 0";
         for (int i = 0; i < waveCount; i++)
         {
             SpawnEnemy();
@@ -70,7 +73,7 @@ public class EnemySpawnController : MonoBehaviour
         }
 
         spawning = false;
-        waveLevel++;
+        GameManager.gameLevel++;
         yield break;
     }
 

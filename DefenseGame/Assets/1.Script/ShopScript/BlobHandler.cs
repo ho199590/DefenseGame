@@ -17,6 +17,9 @@ public class BlobHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     ExplainContent param;
     [SerializeField]
     PlayerOperate operate;
+
+    [SerializeField]
+    Text CurPlayerOP;
     #endregion
 
     #region ÇÔ¼ö
@@ -24,6 +27,7 @@ public class BlobHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         BuilderController.instance.playerOP = operate;
         BuilderController.instance.cost = cost;
+        CurPlayerOP.text = transform.name;
     }
 
     public void OnPointerEnter(PointerEventData eventData)

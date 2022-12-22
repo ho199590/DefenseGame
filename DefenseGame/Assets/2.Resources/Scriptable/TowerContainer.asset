@@ -100,22 +100,22 @@ MonoBehaviour:
   - name: Laser
     code: 4
     level:
-    - attack: 10
+    - attack: 1
       speed: 0.33
       range: 30
       skill: 0
       bullet: {fileID: 1673766565641245704, guid: 7215a81cb01e5544a8230090fc140a9b, type: 3}
-    - attack: 10
+    - attack: 2
       speed: 0.33
       range: 30
       skill: 0
       bullet: {fileID: 1673766565641245704, guid: 7215a81cb01e5544a8230090fc140a9b, type: 3}
-    - attack: 10
+    - attack: 4
       speed: 0.33
       range: 30
       skill: 0
       bullet: {fileID: 1673766565641245704, guid: 7215a81cb01e5544a8230090fc140a9b, type: 3}
-    - attack: 10
+    - attack: 5
       speed: 0.33
       range: 30
       skill: 0

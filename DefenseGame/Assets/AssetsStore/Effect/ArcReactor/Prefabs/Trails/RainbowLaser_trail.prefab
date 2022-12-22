@@ -398,7 +398,7 @@ MonoBehaviour:
     oscillations: []
     shapeCurves: []
   lifetime: 2
-  playbackType: 1
+  playbackType: 0
   elapsedTime: 0
   playBackward: 0
   freeze: 0

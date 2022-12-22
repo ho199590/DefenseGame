@@ -8,8 +8,7 @@ namespace ArcReactor.Demo
 		public bool grabbed = false;
 		public LayerMask raycastMask;
 		public LayerMask objectMask;
-
-		// Update is called once per frame
+				// Update is called once per frame
 		void Update () 
 		{
 			RaycastHit hit;

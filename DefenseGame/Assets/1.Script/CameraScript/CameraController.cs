@@ -11,12 +11,15 @@ public class CameraController : MonoBehaviour
     public float panBorderThickness = 10f;
 
     private float scrollSpeed = 5f;
-    private float minY = 10f;
+
+    private float minY = 20f;
     private float maxY = 80f;
-    private float maxZ = 60;
+    private float maxZ = 100;
     private float minZ = -40;
-    private float maxX = 80;
-    private float minX = -10;
+    private float maxX = 115;
+    private float minX = -25;
+
+
     #endregion
     #region ÇÔ¼ö
     private void Update()

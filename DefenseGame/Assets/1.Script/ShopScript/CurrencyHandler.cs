@@ -22,6 +22,7 @@ public class CurrencyHandler : MonoBehaviour
     #region º¯¼ö
 
     public Text moneyText;
+    public Text lifeText;
 
     BuilderController builder;
 
@@ -41,6 +42,7 @@ public class CurrencyHandler : MonoBehaviour
     private void Update()
     {
         moneyText.text = PlayerController.money.ToString();
+        lifeText.text = PlayerController.life.ToString();
     }
 
     #endregion

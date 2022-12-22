@@ -1,25 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class EnemyHandler : MonoBehaviour
 {
     #region 변수
 
+    LivingParticleController living;
+    [SerializeField]
+    Transform livingFoot;
+
     public int level;
     public float lifeTime;
+    public GameObject enemyDiePrefab;
 
     private Transform target;
     private int pointIndex = 0;
 
+    [Header("Unit")]
+    public Image healthBar;
 
     // 파라미터
     EnemyParam enemy;
     private int attack;
     private float health;
+    private float maxHelth;
+    private float startSpeed;
     private float speed;
     private float guard;
+    private int value;
     [SerializeField]
     EnemyScriptable enemyContainer;
     #endregion
@@ -28,13 +39,23 @@ public class EnemyHandler : MonoBehaviour
     {
         target = WayPointHandler.points[0];
 
-        level = FindObjectOfType<EnemySpawnController>().waveLevel;
+        level = GameManager.gameLevel;
 
         enemy = enemyContainer.GetEnemyList(level % 10);
         attack = enemy.attack;
         health = enemy.health;
+        maxHelth = enemy.health;
         speed = enemy.speed;
+        startSpeed = enemy.speed;
         guard = enemy.armor;
+
+        value = 5;
+
+        living = FindObjectOfType<LivingParticleController>();
+        if(level % 10 == 9)
+        {
+            living.affector = livingFoot;
+        }
     }
 
     private void Update()
@@ -47,17 +68,62 @@ public class EnemyHandler : MonoBehaviour
         {
             GetNextWayPoint();
         }
+
+        speed = startSpeed;        
     }
 
     void GetNextWayPoint()
     {
         if(pointIndex >= WayPointHandler.points.Length)
         {
-            Destroy(gameObject);
+            EndPath();
+
             return;
         }
         target = WayPointHandler.points[pointIndex];
         pointIndex++;
+    }
+
+    void EndPath()
+    {
+        GameManager.instance.AlterPopup(4);
+        PlayerController.life -= attack;
+        print("남은 라이프 : " + PlayerController.life);
+
+        if(PlayerController.life < 0)
+        {
+            PlayerController.life = 0; 
+        }
+        Destroy(gameObject);
+    }
+
+    public void TakeDamage(float amount)
+    {
+        float damage = amount - guard;
+        if (damage <= 0) damage = 0.01f;
+
+        health -= damage;
+        healthBar.fillAmount = health / maxHelth;
+
+        if(health <= 0)
+        {
+            Die();
+        }
+    }
+
+    public void Slow(float pct)
+    {
+        speed = startSpeed * (1 - pct);
+
+    }
+
+    void Die()
+    {
+        GameObject effect = Instantiate(enemyDiePrefab, transform.position, Quaternion.identity);
+        Destroy(effect, 2f);
+
+        PlayerController.money += value;
+        Destroy(gameObject);        
     }
     #endregion
 }
