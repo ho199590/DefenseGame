@@ -52,6 +52,12 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: e3d281454be7a494e9a0e63807f6eb4f, type: 3}
   - name: "\uAC8C\uC784\uC624\uBC84"
     clip: {fileID: 8300000, guid: 075895943e92f42e49db5372babd2f15, type: 3}
+  - name: "\uD310\uB9E4"
+    clip: {fileID: 8300000, guid: 5b856a599dc811f40a7b1d3f85e95c1a, type: 3}
+  - name: "\uC2A4\uD3F0"
+    clip: {fileID: 8300000, guid: cbf22d75c003e2e4297f8740744d476d, type: 3}
+  - name: "\uBCF4\uC2A4 \uC2A4\uD3F0"
+    clip: {fileID: 8300000, guid: 62ea2d95ea8da2c4ba4d676dd04a6324, type: 3}
 --- !u!82 &4658442992898294160
 AudioSource:
   m_ObjectHideFlags: 0

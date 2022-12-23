@@ -49,6 +49,15 @@ public class EnemyHandler : MonoBehaviour
         startSpeed = enemy.speed;
         guard = enemy.armor;
 
+        if(level >= 10)
+        {
+            health *= 2;
+            maxHelth *= 2;
+            speed *= 1.2f;
+            startSpeed *= 1.2f;
+            guard *= 2;
+        }
+
         value = 5;
     }
 
@@ -80,9 +89,9 @@ public class EnemyHandler : MonoBehaviour
 
     void EndPath()
     {
+        SoundManager.instance.SoundByNum(4);
         GameManager.instance.AlterPopup(4);
         PlayerController.life -= attack;
-        print("남은 라이프 : " + PlayerController.life);
 
         if(PlayerController.life < 0)
         {

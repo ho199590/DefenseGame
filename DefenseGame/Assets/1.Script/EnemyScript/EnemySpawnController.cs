@@ -28,6 +28,13 @@ public class EnemySpawnController : MonoBehaviour
 
     [SerializeField]
     EnemyScriptable enemy;
+
+    [SerializeField]
+    List<SoundParam> sounds = new List<SoundParam>();
+    [SerializeField]
+    List<Material> mats = new List<Material>();
+    [SerializeField]
+    WayRanderController ways;
     #endregion
     private void Start()
     {
@@ -39,7 +46,7 @@ public class EnemySpawnController : MonoBehaviour
     {
         if (countdown <= 0)
         {
-            StartCoroutine(SpawnWave());    
+            StartCoroutine(SpawnWave());             
             countdown = timeBetweenWaves;
         }
 
@@ -60,7 +67,7 @@ public class EnemySpawnController : MonoBehaviour
         waveCount = enemy.GetEnemyList(test).count;
 
         if(test == 9)
-        {
+        {   
             GameManager.instance.AlterPopup(5);
         }
 
@@ -82,14 +89,21 @@ public class EnemySpawnController : MonoBehaviour
         float x = Random.Range(-(size.x / 2), (size.x / 2));
         float z = Random.Range(-(size.y / 2), (size.y / 2));
         Vector3 SpawnPoint = new Vector3(center.x, 1, center.z);
+        SoundManager.instance.SoundOnShot(sounds[0].clip);
 
-        if(waveCount % 10 == 9)
-        {
+        if (GameManager.gameLevel % 10 == 9)
+        {   
+            SoundManager.instance.SoundOnShot(sounds[1].clip);
             var enemy = Instantiate(enemyPrefab[1], SpawnPoint, Quaternion.identity, enemyBasket);
+            enemy.GetComponent<Renderer>().material = mats[(int)GameManager.gameLevel/10];
+
+            ways.SetNextMaterial();
+            SoundManager.instance.SetNextBgm();
         }
         else
-        {
+        {   
             var enemy = Instantiate(enemyPrefab[0], SpawnPoint, Quaternion.identity, enemyBasket);
+            enemy.GetComponent<Renderer>().material = mats[(int)GameManager.gameLevel / 10];
         }
         
 

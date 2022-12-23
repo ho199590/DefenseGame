@@ -13,6 +13,7 @@ public class BuilderController : MonoBehaviour
     private GameObject towerToBuild;
     private GameObject towerToAction;
     private NodeScript selectedNode;
+    [SerializeField]
     private NodeScript actionNode;
     [SerializeField]
     private GameObject[] towerList;
@@ -33,6 +34,12 @@ public class BuilderController : MonoBehaviour
     GameObject mergeParticle;
     [SerializeField]
     GameObject sellParticle;
+    [SerializeField]
+    GameObject moveParticle;
+
+    [Header("파티클")]
+    [SerializeField]
+    SoundParam[] Sounds;
 
     [SerializeField]
     TowerScriptable towerContainer;
@@ -56,7 +63,7 @@ public class BuilderController : MonoBehaviour
 
     public void BuildTowerOn(NodeScript node)
     {
-        if (PlayerController.money < cost) { print("Not Enought Money"); return; }
+        if (PlayerController.money < cost) { print("Not Enought Money"); GameManager.instance.AlterPopup(0); return; }
         PlayerController.money -= cost;
         // 건설 관련 스크립트
         (int, GameObject) towerParam = GetTowerToBuild();
@@ -69,11 +76,27 @@ public class BuilderController : MonoBehaviour
         tower.GetComponent<TowerController>().SetState();
 
         var effect = Instantiate(buildParticle, node.getPostionOffset(), Quaternion.identity);
-
-
         Destroy(effect, 2f);
+
         node.tower = tower;
         tower.GetComponent<TowerController>().SetMyNode(node);
+
+        SoundManager.instance.SoundOnShot(Sounds[0].clip);
+    }
+
+    public void MoveTowerOn(NodeScript node)
+    {
+        GameObject tower = Instantiate(actionNode.tower, node.getPostionOffset(), Quaternion.identity);
+        tower.GetComponent<TowerController>().SetState();
+        
+        var effect = Instantiate(moveParticle, node.getPostionOffset(), Quaternion.identity);
+        Destroy(effect, 2f);
+
+        tower.GetComponent<TowerController>().SetMyNode(node);
+
+        actionNode.TowerCleaner();
+
+        SoundManager.instance.SoundOnShot(Sounds[1].clip);
     }
 
 
@@ -111,6 +134,16 @@ public class BuilderController : MonoBehaviour
     public GameObject GetTowerToAction()
     {
         return towerToAction;
+    }
+
+    public void SetNodeToAction(NodeScript node)
+    {
+        actionNode = node;
+    }
+
+    public NodeScript GetNodeToAction()
+    {
+        return actionNode;
     }
 
     public void SelectNode(NodeScript node)

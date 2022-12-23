@@ -41,7 +41,7 @@ public class NodeScript : MonoBehaviour
 
     private void OnMouseDown()
     {
-        //if (EventSystem.current.IsPointerOverGameObject())return;
+        if (EventSystem.current.IsPointerOverGameObject())return;
 
 
         if (tower != null)
@@ -69,23 +69,31 @@ public class NodeScript : MonoBehaviour
                 BuilderController.instance.DeselectNode();
             }
 
+            if (BuilderController.instance.playerOP == PlayerOperate.Move)
+            {
+                print("Action Node Select");
+                BuilderController.instance.SetNodeToAction(this);
+            }
             return;
+        }
+
+
+        if (BuilderController.instance.playerOP == PlayerOperate.Move)
+        {   
+            if (BuilderController.instance.GetNodeToAction() != null)
+            {   
+                TowerMove();
+            }
+
+            BuilderController.instance.DeselectNode();
         }
 
         if (BuilderController.instance.playerOP == PlayerOperate.Build)
         {
             BuildTower();
         }
-        if (BuilderController.instance.playerOP == PlayerOperate.Destroy)
-        {
-            print("Destroy");
-        }
-        if (BuilderController.instance.playerOP == PlayerOperate.Move)
-        {
-            print("Move");
-        }
-    }
 
+    }
     public void BuildTower()
     {
         if (tower != null)
@@ -115,6 +123,8 @@ public class NodeScript : MonoBehaviour
                 towerCon.SetState();                
                 PlayerController.money -= cost;
                 BuilderController.instance.UpgradeSelect();
+
+                SoundManager.instance.SoundByNum(6);
             }
             else
             {
@@ -152,8 +162,12 @@ public class NodeScript : MonoBehaviour
                 BuilderController.instance.SetTowerToAction(null);
 
                 Destroy(sourceTower.gameObject);
+
+                SoundManager.instance.SoundByNum(7);
+
             });
         }
+
     }
     #endregion
     #region 타워 판매 관련
@@ -168,6 +182,8 @@ public class NodeScript : MonoBehaviour
 
         BuilderController.instance.SelledParticle(this);
         BuilderController.instance.DeselectNode();
+
+        SoundManager.instance.SoundByNum(3);
     }
     public void TowerCleaner()
     {
@@ -178,7 +194,30 @@ public class NodeScript : MonoBehaviour
     #region 타워 이동 관련
     public void TowerMove()
     {
+        if(tower == null)
+        {
+            if(tower == BuilderController.instance.GetNodeToAction().tower)
+            {
+                return;
+            }
 
+            if(PlayerController.money < 50)
+            {
+                GameManager.instance.AlterPopup(0);
+                return;
+            }
+            else
+            {
+                //tower = BuilderController.instance.GetNodeToAction().tower;
+                //BuilderController.instance.GetNodeToAction().TowerCleaner();
+
+                BuilderController.instance.MoveTowerOn(this);
+            }
+        }
+        else
+        {
+            GameManager.instance.AlterPopup(1);
+        }
     }
     #endregion
     public Vector3 getPostionOffset() { return transform.position + positionOffset; }

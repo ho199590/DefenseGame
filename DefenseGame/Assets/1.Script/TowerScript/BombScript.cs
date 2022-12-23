@@ -14,6 +14,8 @@ public class BombScript : MonoBehaviour
 
     [SerializeField]
     GameObject bombEffect;
+    [SerializeField]
+    AudioClip bombSound;
     #endregion
 
     #region ÇÔ¼ö
@@ -40,7 +42,8 @@ public class BombScript : MonoBehaviour
                 Damage(collider.transform);
             }
         }
-        
+
+        SoundManager.instance.SoundOnShot(bombSound);
         GameObject effect = Instantiate(bombEffect, transform.position, transform.rotation);
         //Destroy(effect, 2f);
         Destroy(gameObject, 2f);

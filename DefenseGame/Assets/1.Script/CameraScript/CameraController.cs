@@ -5,7 +5,8 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     #region º¯¼ö
-    private bool doMovement = true;
+    
+    public bool doMovement = true;
 
     public float panSpeed = 45f;
     public float panBorderThickness = 10f;

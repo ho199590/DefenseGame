@@ -73,6 +73,11 @@ public class GameManager : MonoBehaviour
         AlterBox.SetActive(false);
         AlterMassage.text = alterMassages[num];
         AlterBox.SetActive(true);              
+
+        if(num != 4)
+        {
+            SoundManager.instance.SoundByNum(5);
+        }
     }
     #endregion
 }

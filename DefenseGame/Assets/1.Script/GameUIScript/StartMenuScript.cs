@@ -20,6 +20,9 @@ public class StartMenuScript : MonoBehaviour
 
     [SerializeField]
     SceneFader sceneFader;
+
+    [SerializeField]
+    AudioClip startButton;
     #endregion
 
     #region ÇÔ¼ö
@@ -40,6 +43,7 @@ public class StartMenuScript : MonoBehaviour
 
     public void ChangeScene()
     {
+        SoundManager.instance.SoundOnShot(startButton);
         sceneFader.FadeTo("Stage");
     }
     #endregion

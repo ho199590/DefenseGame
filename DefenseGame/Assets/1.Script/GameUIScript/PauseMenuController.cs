@@ -33,6 +33,8 @@ public class PauseMenuController : MonoBehaviour
         {
             SoundManager.instance.SoundByNum(0);
 
+            GetComponent<CameraController>().doMovement = false;
+
             Time.timeScale = 0;
         }
         else
@@ -40,6 +42,8 @@ public class PauseMenuController : MonoBehaviour
             SoundManager.instance.SoundByNum(1);
 
             Time.timeScale = 1;
+
+            GetComponent<CameraController>().doMovement = true;
         }
     }
 
