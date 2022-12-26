@@ -7301,43 +7301,6 @@ MonoBehaviour:
   hoverColor: {r: 0.16862746, g: 0.16862746, b: 0.16862746, a: 1}
   enoughtColor: {r: 0.76862746, g: 0.26666668, b: 0.25490198, a: 1}
   tower: {fileID: 0}
---- !u!84 &105874618
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: SDF
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 5
-  m_Width: 3381
-  m_Height: 82
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthStencilFormat: 0
-  m_ColorFormat: 22
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
-  m_ShadowSamplingMode: 2
 --- !u!1001 &108377576
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -52400,6 +52363,43 @@ Transform:
   m_Father: {fileID: 1735748749}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!84 &873020319
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SDF
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 5
+  m_Width: 302
+  m_Height: 252
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 0
+  m_ColorFormat: 22
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
+  m_ShadowSamplingMode: 2
 --- !u!1 &873066665
 GameObject:
   m_ObjectHideFlags: 0
@@ -55840,7 +55840,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_texture: {fileID: 105874618}
+  m_texture: {fileID: 1940186822}
   m_graphicAlphaMult: 1
   m_circleAlpha: 0.2
   m_circlePos: {x: 0, y: 0}
@@ -60849,7 +60849,6 @@ MonoBehaviour:
   - "\uBCF4\uC2A4 \uCD9C\uD604!"
   overlayCanvas: {fileID: 1135988768}
   gameOverUI: {fileID: 207372137}
-  settingUI: {fileID: 0}
 --- !u!4 &997211136
 Transform:
   m_ObjectHideFlags: 0
@@ -60880,6 +60879,7 @@ MonoBehaviour:
   UI: {fileID: 1824306421}
   waveCount: {fileID: 372041761}
   sceneFader: {fileID: 495286527}
+  cc: {fileID: 1273594456}
 --- !u!1 &999031902
 GameObject:
   m_ObjectHideFlags: 0
@@ -68827,7 +68827,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_texture: {fileID: 1797046471}
+  m_texture: {fileID: 873020319}
   m_graphicAlphaMult: 1
   m_circleAlpha: 0.321
   m_circlePos: {x: 0, y: -275.19373}
@@ -108701,43 +108701,6 @@ MonoBehaviour:
   hoverColor: {r: 0.16862746, g: 0.16862746, b: 0.16862746, a: 1}
   enoughtColor: {r: 0.76862746, g: 0.26666668, b: 0.25490198, a: 1}
   tower: {fileID: 0}
---- !u!84 &1797046471
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: SDF
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 5
-  m_Width: 302
-  m_Height: 252
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthStencilFormat: 0
-  m_ColorFormat: 22
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
-  m_ShadowSamplingMode: 2
 --- !u!1 &1797896267
 GameObject:
   m_ObjectHideFlags: 0
@@ -117724,6 +117687,43 @@ MonoBehaviour:
   hoverColor: {r: 0.16862746, g: 0.16862746, b: 0.16862746, a: 1}
   enoughtColor: {r: 0.76862746, g: 0.26666668, b: 0.25490198, a: 1}
   tower: {fileID: 0}
+--- !u!84 &1940186822
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SDF
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 5
+  m_Width: 3381
+  m_Height: 82
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 0
+  m_ColorFormat: 22
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
+  m_ShadowSamplingMode: 2
 --- !u!1 &1942122241
 GameObject:
   m_ObjectHideFlags: 0

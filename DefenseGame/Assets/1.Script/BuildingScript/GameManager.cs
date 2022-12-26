@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 
     private static bool gameEnd = false;
     public static int gameLevel = 0;
+    public int grade = 1;
 
     [Header("게임 진행 UI")]
     public Text wavelevel;
@@ -23,7 +24,6 @@ public class GameManager : MonoBehaviour
     [Header("오버레이 UI")]
     public GameObject overlayCanvas;
     public GameObject gameOverUI;
-    public GameObject settingUI;
     #endregion
 
     #region 함수

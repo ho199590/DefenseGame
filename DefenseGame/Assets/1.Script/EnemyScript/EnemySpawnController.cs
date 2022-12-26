@@ -99,6 +99,8 @@ public class EnemySpawnController : MonoBehaviour
 
             ways.SetNextMaterial();
             SoundManager.instance.SetNextBgm();
+
+            GameManager.instance.grade++;
         }
         else
         {   

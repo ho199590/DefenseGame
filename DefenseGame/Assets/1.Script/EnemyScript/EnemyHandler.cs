@@ -49,16 +49,20 @@ public class EnemyHandler : MonoBehaviour
         startSpeed = enemy.speed;
         guard = enemy.armor;
 
-        if(level >= 10)
-        {
-            health *= 2;
-            maxHelth *= 2;
-            speed *= 1.2f;
-            startSpeed *= 1.2f;
-            guard *= 2;
-        }
-
         value = 5;
+
+        SettingGrade();
+    }
+
+    void SettingGrade()
+    {
+        attack *= GameManager.instance.grade;
+        health *= GameManager.instance.grade;
+        maxHelth *= GameManager.instance.grade;
+        speed *= GameManager.instance.grade;
+        startSpeed *= GameManager.instance.grade;
+        guard *= GameManager.instance.grade;
+
     }
 
     private void Update()

@@ -13,6 +13,8 @@ public class PauseMenuController : MonoBehaviour
     [SerializeField]
     SceneFader sceneFader;
 
+    [SerializeField]
+    CameraController cc;
     #endregion
 
     #region ÇÔ¼ö
@@ -33,7 +35,7 @@ public class PauseMenuController : MonoBehaviour
         {
             SoundManager.instance.SoundByNum(0);
 
-            GetComponent<CameraController>().doMovement = false;
+            cc.doMovement = false;
 
             Time.timeScale = 0;
         }
@@ -43,7 +45,7 @@ public class PauseMenuController : MonoBehaviour
 
             Time.timeScale = 1;
 
-            GetComponent<CameraController>().doMovement = true;
+            cc.doMovement = true;
         }
     }
 
