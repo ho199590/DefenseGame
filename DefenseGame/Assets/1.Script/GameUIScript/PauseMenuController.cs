@@ -57,7 +57,7 @@ public class PauseMenuController : MonoBehaviour
 
     public void Menu()
     {
-
+        Time.timeScale = 1;        
         sceneFader.FadeTo("MainMenu");
     }
     #endregion

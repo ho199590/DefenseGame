@@ -55,14 +55,12 @@ public class EnemyHandler : MonoBehaviour
     }
 
     void SettingGrade()
-    {
-        attack *= GameManager.instance.grade;
+    {   
         health *= GameManager.instance.grade;
         maxHelth *= GameManager.instance.grade;
         speed *= GameManager.instance.grade;
         startSpeed *= GameManager.instance.grade;
         guard *= GameManager.instance.grade;
-
     }
 
     private void Update()
